@@ -34,9 +34,13 @@ public class ReverseGeoLookUpController {
 
   private static final Logger LOGGER =
       org.slf4j.LoggerFactory.getLogger(ReverseGeoLookUpController.class);
-
-  @Autowired
+  
   private ReverseGeoLocationService reverseGeoLocationService;
+  
+  @Autowired
+  public ReverseGeoLookUpController(ReverseGeoLocationService reverseGeoLocationService){
+    this.reverseGeoLocationService = reverseGeoLocationService;
+  }
 
   @RequestMapping(value = "/ping", method = RequestMethod.GET)
   @ApiOperation(value = "Ping")
